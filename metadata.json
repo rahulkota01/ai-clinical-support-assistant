@@ -1,0 +1,5 @@
+{
+  "name": "AI Clinical Support Assistant",
+  "description": "A professional clinical tool for hospitals supporting case registration, follow-up tracking, and patient education through an AI Virtual Doctor interface.",
+  "requestFramePermissions": []
+}

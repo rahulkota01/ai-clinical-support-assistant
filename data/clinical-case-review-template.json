@@ -1,0 +1,108 @@
+{
+  "caseReviews": [
+    {
+      "caseMetadata": {
+        "caseId": "CASE-001",
+        "date": "2026-01-30",
+        "specialty": "Medicine",
+        "reviewer": "Faculty"
+      },
+      "patientContext": {
+        "ageGroup": "31-50",
+        "sex": "Male",
+        "majorRiskFactors": ["smoking", "diabetes", "HTN"],
+        "relevantComorbidities": {
+          "diabetes": true,
+          "hypertension": true,
+          "obesity": false,
+          "heartDisease": false
+        }
+      },
+      "presentation": {
+        "chiefComplaint": "Chest pain for 2 hours",
+        "symptomOnset": "sudden",
+        "duration": "2 hours",
+        "redFlagSymptoms": {
+          "present": true,
+          "symptoms": ["chest pain", "shortness of breath", "sweating"]
+        }
+      },
+      "keyFindings": {
+        "vitalSignCategory": "abnormal",
+        "imagingSummary": "ECG shows ST elevation in leads V2-V5",
+        "labsSummary": "critical - elevated troponin, abnormal electrolytes"
+      },
+      "systemOutput": {
+        "riskCategoryAssigned": "emergency",
+        "keyInterpretationGenerated": "Acute Coronary Syndrome suspected",
+        "medicationConsiderationsSuggested": ["Aspirin", "Nitroglycerin", "Beta-blocker"],
+        "confidenceLevel": 92
+      },
+      "reviewerFeedback": {
+        "wasRiskClassificationAppropriate": "yes",
+        "missedRedFlags": [],
+        "unnecessaryAlarm": false,
+        "wereMedicationConsiderationsReasonable": "yes",
+        "comments": "Excellent recognition of ACS. All critical medications suggested."
+      },
+      "logicRefinementNotes": {
+        "ruleToAdjust": "None",
+        "newConditionPatternIdentified": false,
+        "thresholdAdjustment": null,
+        "actionItem": "Current logic working well for cardiac cases"
+      }
+    }
+  ],
+  "template": {
+    "caseMetadata": {
+      "caseId": "string",
+      "date": "YYYY-MM-DD",
+      "specialty": "Medicine/Surgery/Neuro/Pulmonary/etc",
+      "reviewer": "Faculty/Clinician/Self-review"
+    },
+    "patientContext": {
+      "ageGroup": "18-30/31-50/>50",
+      "sex": "Male/Female/Other",
+      "majorRiskFactors": ["smoking", "diabetes", "HTN", "obesity"],
+      "relevantComorbidities": {
+        "diabetes": "boolean",
+        "hypertension": "boolean",
+        "obesity": "boolean",
+        "heartDisease": "boolean"
+      }
+    },
+    "presentation": {
+      "chiefComplaint": "free text",
+      "symptomOnset": "sudden/gradual",
+      "duration": "string",
+      "redFlagSymptoms": {
+        "present": "boolean",
+        "symptoms": ["array of symptoms"]
+      }
+    },
+    "keyFindings": {
+      "vitalSignCategory": "normal/abnormal",
+      "imagingSummary": "if any",
+      "labsSummary": "normal/abnormal/critical"
+    },
+    "systemOutput": {
+      "riskCategoryAssigned": "routine/urgent/emergency",
+      "keyInterpretationGenerated": "string",
+      "medicationConsiderationsSuggested": ["array"],
+      "confidenceLevel": "number (0-100)"
+    },
+    "reviewerFeedback": {
+      "wasRiskClassificationAppropriate": "yes/no",
+      "missedRedFlags": ["array"],
+      "unnecessaryAlarm": "boolean",
+      "wereMedicationConsiderationsReasonable": "yes/no",
+      "comments": "free text"
+    },
+    "logicRefinementNotes": {
+      "ruleToAdjust": "string",
+      "newConditionPatternIdentified": "boolean",
+      "thresholdAdjustment": "higher/lower/null",
+      "actionItem": "string"
+    }
+  }
+}
